@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+    <style>
+        .form-container {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #007bff;
+            font-size: 35px;
+            margin-bottom: 60px;
+        }
+
+        .form-group label {
+            color: #646464;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+            text-align: left;
+            margin-left: 35%;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 30%;
+            padding: 10px;
+            border: 1px solid #646464;
+            border-radius: 5px;
+            margin-bottom: 50px;
+        }
+
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #333333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-group button:hover {
+            background-color: #000000;
+        }
+
+        .alert {
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .alert-success {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .alert-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+
+    <div class="navbarInside" style="background-color: black; ">
+        <nav style="    padding-left: 10px;
+        padding-right: 10px;" class="navbar navbar-expand-lg navbar-dark data-bs-theme=dark">
+            <a class="navbar-brand" href="./index.html">My Portfolio</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="projects.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="experience.html">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="skills.html">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="resume.html">Resume</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contactme.html">Connect</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+
+    <div class="form-container">
+        <h1>Contact Me</h1>
+        <div class="contact-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" placeholder="Enter your message"></textarea>
+            </div>
+            <div class="form-group">
+                <button onclick="submitForm()">Submit</button>
+            </div>
+            <div id="alert" class="alert" style="display: none;"></div>
+        </div>
+    </div>
+
+    <script>
+        var contacts = [];
+
+        function submitForm() {
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var message = document.getElementById('message').value;
+
+            // Save contact details
+            var contact = {
+                name: name,
+                email: email,
+                message: message
+            };
+            contacts.push(contact);
+
+            // Reset the form fields
+            document.getElementById('name').value = "";
+            document.getElementById('email').value = "";
+            document.getElementById('message').value = "";
+
+            // Show alert
+            var alertMessage = "Thank you for contacting " + name + ". You will receive a reply soon at " + email +
+                ". Your message is: " + message;
+            alert(alertMessage);
+        }
+    </script>
+
+
+</body>
+
+</html>
